@@ -37,22 +37,17 @@ accesslog = '-'
 access_log_format = '%({X-Real-IP}i)s - - - %(t)s.%(T)s "%(r)s" "%(f)s" "%(a)s" %({X-Request-Id}i)s %(L)s %(b)s %(s)s'
 # todo - JC: pass org_user_id tpa_id proxy_id and replace the three dashes in above format
 
-
 def post_fork(server, worker):
     server.log.info("Worker spawned (pid: %s)", worker.pid)
-
 
 def pre_fork(server, worker):
     pass
 
-
 def pre_exec(server):
     server.log.info("Forked child, re-executing.")
 
-
 def when_ready(server):
     server.log.info("Server is ready. Spawning workers")
-
 
 def worker_int(worker):
     worker.log.info("worker received INT or QUIT signal")
