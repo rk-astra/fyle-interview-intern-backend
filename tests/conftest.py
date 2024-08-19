@@ -2,11 +2,9 @@ import pytest
 import json
 from tests import app
 
-
 @pytest.fixture
 def client():
     return app.test_client()
-
 
 @pytest.fixture
 def h_student_1():
@@ -16,9 +14,7 @@ def h_student_1():
             'user_id': 1
         })
     }
-
     return headers
-
 
 @pytest.fixture
 def h_student_2():
